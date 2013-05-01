@@ -18,5 +18,6 @@
   "repository"      : {
     "type"          : "git",
     "url"           : "https://github.com/mantoni/consolify.js.git"
-  }
+  },
+  "files"           : ["bin", "lib", "README.md", "CHANGES.md", "LICENSE"]
 }

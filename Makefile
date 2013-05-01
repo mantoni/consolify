@@ -1,5 +1,8 @@
-default:
-	@echo "No tests yet"
+default: assert.sh
+	@test/suite.sh
+
+assert.sh:
+	git clone https://github.com/lehmannro/assert.sh
 
 version := $(shell node -e "console.log(require('./package.json').version)")
 

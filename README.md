@@ -4,7 +4,7 @@ Turn your browser window into a console and run Node modules via Browserify.
 
 ## Why?
 
-If you have Node.js test cases you can probably also run them in the browser.
+Blog post: [How to run Node.js tests in your browser](http://maxantoni.de/blog/2013/04/how-to-run-nodejs-tests-in-your-browser.html)
 
 ![consolify](http://maxantoni.de/img/consolify.png)
 
@@ -12,13 +12,19 @@ If you have Node.js test cases you can probably also run them in the browser.
 ## Install with NPM
 
 ```
-npm install -g consolify
+$ npm install -g consolify
 ```
 
 ## Usage
 
 ```
-consolify script.js > script.html
+$ consolify script.js > script.html
+```
+
+Optionally prepend [es5-shim](https://github.com/kriskowal/es5-shim):
+
+```
+$ consolify --shim script.js > script.html
 ```
 
 The generated HTML page has no external dependencies.

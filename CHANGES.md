@@ -1,5 +1,12 @@
 # Changes
 
+## v0.3.0
+
+- New `-o target` option writes output to a file. Defaults to stdout.
+- New `--reload` option includes the [browser-reload][] script
+
+[browser-reload]: https://github.com/mantoni/browser-reload
+
 ## v0.2.0
 
 - Print usage if called without arguments

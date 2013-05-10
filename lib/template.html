@@ -47,4 +47,12 @@
   console.warn  = toHtml('warn');
   console.error = toHtml('error');
 }());
-setTimeout(function () {try {
+/*shim*/
+setTimeout(function () {
+try {
+/*browserify*/
+} catch (e) {
+  console.error('Failed to load script: ' + e);
+}}, 1);
+/*reload*/
+</script></body></html>

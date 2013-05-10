@@ -5,13 +5,16 @@ RUN="phantomjs test/phantom.js"
 assert_raises "node ." 1
 
 assert_raises "node . --shim" 1
-assert_raises "node . ./something/unknown.js" 1
+assert_raises "node . --reload" 1
+assert_raises "node . ./something/unknown.js" 8
 
 assert_raises "node . ./test/hello-info.js" 0
 assert_raises "node . ./test/hello-warn.js" 0
 assert_raises "node . ./test/hello-error.js" 0
 assert_raises "node . ./test/throw.js" 0
 assert_raises "node . --shim ./test/hello-info.js | $RUN" 0
+assert_raises "node . --reload ./test/hello-info.js | $RUN" 0
+assert_raises "node . --shim --reload ./test/hello-info.js | $RUN" 0
 
 assert "node . ./test/hello-info.js | $RUN" "INFO Oh, hi!"
 assert "node . ./test/hello-warn.js | $RUN" "WARN Uh oh ..."

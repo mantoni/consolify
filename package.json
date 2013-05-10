@@ -1,23 +1,24 @@
 {
-  "name"            : "consolify",
-  "version"         : "0.2.0",
-  "description"     : "Turn your browser window into a console and run Node modules via Browserify",
-  "author"          : "Maximilian Antoni (http://maxantoni.de)",
-  "homepage"        : "https://github.com/mantoni/consolify",
-  "main"            : "./lib/consolify.js",
-  "bin"             : "bin/consolify.bin.js",
-  "engines"         : {
-    "node"          : ">=0.8"
+  "name"             : "consolify",
+  "version"          : "0.3.0",
+  "description"      : "Turn your browser window into a console and run Node modules via Browserify",
+  "author"           : "Maximilian Antoni (http://maxantoni.de)",
+  "homepage"         : "https://github.com/mantoni/consolify",
+  "main"             : "./lib/consolify.js",
+  "bin"              : "bin/consolify.bin.js",
+  "engines"          : {
+    "node"           : ">=0.8"
   },
-  "dependencies"    : {
-    "browserify"    : ">=2.13 <3",
-    "es5-shim"      : ">=2.0 <3",
-    "optimist"      : "0.4.0",
-    "listen"        : "0.3.1"
+  "dependencies"     : {
+    "browserify"     : ">=2.13 <3",
+    "es5-shim"       : ">=2.0 <3",
+    "optimist"       : "0.4.0",
+    "listen"         : "0.4.0",
+    "browser-reload" : ">=1.0 <2"
   },
-  "repository"      : {
-    "type"          : "git",
-    "url"           : "https://github.com/mantoni/consolify.js.git"
+  "repository"       : {
+    "type"           : "git",
+    "url"            : "https://github.com/mantoni/consolify.js.git"
   },
-  "files"           : ["bin", "lib", "README.md", "CHANGES.md", "LICENSE"]
+  "files"            : ["bin", "lib", "README.md", "CHANGES.md", "LICENSE"]
 }

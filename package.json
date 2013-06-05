@@ -1,6 +1,6 @@
 {
   "name"             : "consolify",
-  "version"          : "0.3.0",
+  "version"          : "0.4.0",
   "description"      : "Turn your browser window into a console and run Node modules via Browserify",
   "author"           : "Maximilian Antoni (http://maxantoni.de)",
   "homepage"         : "https://github.com/mantoni/consolify",
@@ -13,8 +13,7 @@
     "browserify"     : ">=2.13 <3",
     "es5-shim"       : ">=2.0 <3",
     "optimist"       : "0.4.0",
-    "listen"         : "0.4.0",
-    "browser-reload" : ">=1.0 <2"
+    "listen"         : "0.4.0"
   },
   "repository"       : {
     "type"           : "git",

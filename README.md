@@ -1,50 +1,57 @@
 # Consolify
 
-Turn your browser window into a console and run Node modules via Browserify.
+Turn your browser window into a console and run Node modules via [Browserify][].
 
-## Why?
+
+## Motivation
+
+Run your Node.js unit tests in a browser.
 
 Read the blog post: [How to run Node.js tests in your browser](http://maxantoni.de/blog/2013/04/how-to-run-nodejs-tests-in-your-browser.html)
 
 ![consolify](http://maxantoni.de/img/consolify.png)
 
 
-## Install with NPM
+## Usage
+
+Install with npm:
 
 ```
 $ npm install -g consolify
 ```
 
-## Usage
+Run `consolify` in the same way as you would run Browserify:
 
 ```
-$ consolify script.js > script.html
+$ consolify ./index.js > script.html
 ```
 
 The generated HTML page has no external dependencies.
 
-## Options
-
-Prepend [es5-shim](https://github.com/kriskowal/es5-shim):
+Prepending [es5-shim](https://github.com/kriskowal/es5-shim):
 
 ```
-$ consolify --shim script.js > script.html
+$ consolify --shim ./index.js > script.html
 ```
 
-Append an auto-reload script:
+Write to a file instead of stdout:
 
 ```
-$ consolify --reload -o script.html script.js
+$ consolify -o script.html ./index.js
 ```
 
-The reload script does HEAD requests every second and automatically reloads the page if the `Last-Modified` header changed.
-Make sure the html is served by a web server.
+Add [browser-reload][] to automatically reload the page on change:
+
+```
+$ npm install browser-reload
+$ consolify -o script.html ./index.js browser-reload
+```
 
 Please refer to the [browser-reload][] documentation for further details.
 
 [browser-reload]: https://github.com/mantoni/browser-reload
 
-## Links
+## Credits
 
 - [Browserify](http://browserify.org) does all the hard work
 - Colors from <http://chriskempson.github.io/base16/>

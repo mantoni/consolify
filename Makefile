@@ -14,5 +14,5 @@ endif
 	@echo "Creating tag v${version}"
 	@git tag -a -m "Release ${version}" v${version}
 	@git push --tags
-	@echo "Publishing to NPM"
+	@echo "Publishing to npm"
 	@npm publish

@@ -1,5 +1,10 @@
 # Changes
 
+## v0.4.0
+
+- Removed `--reload` option and dependency to browser-reload again
+- Fixed an issue with $ not being escaped in replace
+
 ## v0.3.0
 
 - New `-o target` option writes output to a file. Defaults to stdout.

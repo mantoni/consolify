@@ -1,6 +1,6 @@
 {
   "name"             : "consolify",
-  "version"          : "0.4.0",
+  "version"          : "0.4.1",
   "description"      : "Turn your browser window into a console and run Node modules via Browserify",
   "author"           : "Maximilian Antoni (http://maxantoni.de)",
   "homepage"         : "https://github.com/mantoni/consolify",

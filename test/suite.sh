@@ -24,4 +24,7 @@ assert "node . ./test/throw.js | $RUN" "ERROR Failed to load script: Error: Oh n
 assert "node . ./test/bind.js | $RUN" "LOG no"
 assert "node . --shim ./test/bind.js | $RUN" "LOG yes"
 
+assert "node . ./test/title.js | $RUN" "LOG Consolify"
+assert "node . --title='Hello Title' ./test/title.js | $RUN" "LOG Hello Title"
+
 assert_end

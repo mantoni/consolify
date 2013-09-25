@@ -40,6 +40,12 @@ Write to a file instead of stdout:
 $ consolify -o script.html ./index.js
 ```
 
+See all available options by just running
+
+```
+$ consolify
+```
+
 Add [browser-reload][] to automatically reload the page on change:
 
 ```

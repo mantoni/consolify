@@ -1,5 +1,9 @@
 # Changes
 
+## v0.4.1
+
+- Added `--title` option to set the title of the generated web page
+
 ## v0.4.0
 
 - Removed `--reload` option and dependency to browser-reload again

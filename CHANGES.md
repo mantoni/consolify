@@ -1,5 +1,9 @@
 # Changes
 
+## v0.5.0
+
+- Added `--mocha` option to use Mocha as a test framework
+
 ## v0.4.1
 
 - Added `--title` option to set the title of the generated web page

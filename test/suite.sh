@@ -15,6 +15,8 @@ assert_raises "node . ./test/throw.js" 0
 assert_raises "node . --shim ./test/hello-info.js | $RUN" 0
 assert_raises "node . --reload ./test/hello-info.js | $RUN" 0
 assert_raises "node . --shim --reload ./test/hello-info.js | $RUN" 0
+assert_raises "node . --mocha ./test/mocha-pass.js" 0
+assert_raises "node . --mocha ./test/mocha-pass.js | $RUN" 0
 
 assert "node . ./test/hello-info.js | $RUN" "INFO Oh, hi!"
 assert "node . ./test/hello-warn.js | $RUN" "WARN Uh oh ..."
@@ -26,5 +28,9 @@ assert "node . --shim ./test/bind.js | $RUN" "LOG yes"
 
 assert "node . ./test/title.js | $RUN" "LOG Consolify"
 assert "node . --title='Hello Title' ./test/title.js | $RUN" "LOG Hello Title"
+assert "node . --mocha ./test/mocha-pass.js | $RUN" "LOG Running: test"
+assert "node . --mocha ./test/mocha-fail.js | $RUN" "LOG Running: test
+ERROR Failed: fails
+ERROR   AssertionError: false == true"
 
 assert_end

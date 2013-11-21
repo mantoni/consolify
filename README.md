@@ -1,13 +1,15 @@
 # Consolify
 
-Turn your browser window into a console and run Node modules via [Browserify][].
+Turn your browser window into a console that runs your Node unit test via [Browserify][].
 
+## Features:
 
-## Motivation
+- Works with any test framework that reports to the `console`
+- Mocha support
+- ES5 Shim support
+- Generate standalone HTML page or just the JavaScript with source maps
 
-Run your Node.js unit tests in a browser.
-
-Read the blog post: [How to run Node.js tests in your browser](http://maxantoni.de/blog/2013/04/how-to-run-nodejs-tests-in-your-browser.html)
+Read the original blog post: [How to run Node.js tests in your browser](http://maxantoni.de/blog/2013/04/how-to-run-nodejs-tests-in-your-browser.html)
 
 ![consolify](http://maxantoni.de/img/consolify.png)
 
@@ -23,10 +25,24 @@ $ npm install -g consolify
 Run `consolify` in the same way as you would run Browserify:
 
 ```
-$ consolify ./index.js > script.html
+$ consolify ./test/*-test.js > script.html
 ```
 
 The generated HTML page has no external dependencies.
+
+If you are using Mocha:
+
+```
+$ consolify --mocha ./test/*-test.js > script.html
+```
+
+Generate just the JavaScript and pipe it to [phantomic][] for immediate execution in PhantomJS:
+
+[phantomic]: https://github.com/mantoni/phantomic
+
+```
+$ consolify --js ./test/*-test.js | phantomic
+```
 
 Prepending [es5-shim](https://github.com/kriskowal/es5-shim):
 

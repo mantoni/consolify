@@ -31,6 +31,9 @@ assert "node . --title='Hello Title' ./test/title.js | $RUN" "LOG Hello Title"
 assert "node . --mocha ./test/mocha-pass.js | $RUN" "LOG Running: test"
 assert "node . --mocha ./test/mocha-fail.js | $RUN" "LOG Running: test
 ERROR Failed: fails
-ERROR   AssertionError: false == true"
+
+    AssertionError: false == true"
+
+assert "node . --js ./test/hello-info.js | node" "Oh, hi!"
 
 assert_end

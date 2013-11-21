@@ -1,5 +1,10 @@
 # Changes
 
+## v0.6.0
+
+- Added `--js` option to only generate the JavaScript
+- Generating source maps
+
 ## v0.5.0
 
 - Added `--mocha` option to use Mocha as a test framework

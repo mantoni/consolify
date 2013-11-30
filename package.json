@@ -20,5 +20,6 @@
     "type"       : "git",
     "url"        : "https://github.com/mantoni/consolify.git"
   },
-  "files"        : ["bin", "lib", "README.md", "CHANGES.md", "LICENSE"]
+  "files"        : ["bin", "lib", "README.md", "CHANGES.md", "LICENSE"],
+  "license"      : "MIT"
 }

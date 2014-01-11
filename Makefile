@@ -13,7 +13,6 @@ release: test
 ifeq (v${version},$(shell git tag -l v${version}))
 	@echo "Version ${version} already released!"
 endif
-	@make
 	@echo "Creating tag v${version}"
 	@git tag -a -m "Release ${version}" v${version}
 	@git push --tags

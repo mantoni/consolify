@@ -9,7 +9,7 @@ page.onLoadFinished = function () {
       var pres = document.getElementsByTagName('pre');
       return Array.prototype.slice.call(pres).map(function (pre) {
         return pre.className.toUpperCase() + ' ' + pre.innerText;
-      });;
+      });
     });
 
     lines.forEach(function (line) {

@@ -1,5 +1,17 @@
 # Changes
 
+## v0.7.0
+
+Breaking change! Completely rewrote the node code and test cases.
+
+- Consolify is not a browserify wrapper anymore. Although browserifies output
+  can still be piped to consolify.
+- Removed `--mocha` and `--js` options. Use [Mocaccino][] and pipe the output
+  to consolify instead.
+- Added `--reload` option
+
+[Mocaccino]: https://github.com/mantoni/mocaccino.js
+
 ## v0.6.0
 
 - Added `--js` option to only generate the JavaScript

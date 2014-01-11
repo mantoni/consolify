@@ -1,83 +1,45 @@
 # Consolify
 
-Turn your browser window into a console that runs your Node unit test via [Browserify][].
-
-## Features:
-
-- Works with any test framework that reports to the `console`
-- Mocha support
-- ES5 Shim support
-- Generate standalone HTML page or just the JavaScript with source maps
-
-Read the original blog post: [How to run Node.js tests in your browser](http://maxantoni.de/blog/2013/04/how-to-run-nodejs-tests-in-your-browser.html)
+Generate standalone HTML pages that turn the browser window into a console
 
 ![consolify](http://maxantoni.de/img/consolify.png)
 
+## Install with npm:
+
+```
+$ npm install consolify -g
+```
 
 ## Usage
 
-Install with npm:
+Pipe any script to the consolify command:
 
 ```
-$ npm install -g consolify
+$ cat test.js | consolify > test.html
 ```
 
-Run `consolify` in the same way as you would run Browserify:
+Options:
 
 ```
-$ consolify ./test/*-test.js > script.html
+-t, --title    Set the document title (defaults to "Consolify")
+-r, --reload   Auto reload on change
 ```
 
-The generated HTML page has no external dependencies.
+See the [browser-reload][] documentation for details on `--reload`.
 
-If you are using Mocha:
+## Browserify & Mocha
 
-```
-$ consolify --mocha ./test/*-test.js > script.html
-```
-
-Generate just the JavaScript and pipe it to [phantomic][] for immediate execution in PhantomJS:
-
-[phantomic]: https://github.com/mantoni/phantomic
+Consolify works great with [Browserify][] and [Mocha][] through [Mocaccino][]:
 
 ```
-$ consolify --js ./test/*-test.js | phantomic
+$ browserify ./test/*.js | mocaccino -b | consolify > test/all.html
 ```
-
-Prepending [es5-shim](https://github.com/kriskowal/es5-shim):
-
-```
-$ consolify --shim ./index.js > script.html
-```
-
-Write to a file instead of stdout:
-
-```
-$ consolify -o script.html ./index.js
-```
-
-See all available options by just running
-
-```
-$ consolify
-```
-
-Add [browser-reload][] to automatically reload the page on change:
-
-```
-$ npm install browser-reload
-$ consolify -o script.html ./index.js browser-reload
-```
-
-Please refer to the [browser-reload][] documentation for further details.
-
-[browser-reload]: https://github.com/mantoni/browser-reload
-
-## Credits
-
-- [Browserify](http://browserify.org) does all the hard work
-- Colors from <http://chriskempson.github.io/base16/>
 
 ## License
 
 MIT
+
+[browser-reload]: https://github.com/mantoni/browser-reload
+[Mocha]: http://visionmedia.github.io/mocha/
+[Browserify]: http://browserify.org
+[Mocaccino]: https://github.com/mantoni/mocaccino.js

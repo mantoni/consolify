@@ -1,3 +1,49 @@
-</script>
-</body>
-</html>
+</title></head>
+<body>
+<style>
+  body {
+    background-color: #151515;
+    color: #d0d0d0;
+    font-size: 14px;
+    line-height: 20px;
+    margin: 0;
+    padding: 20px;
+  }
+  pre {
+    margin: 0;
+    padding: 5px 0;
+  }
+  pre.log {
+    color: #b0b0b0;
+    padding: 0;
+  }
+  pre.info {
+    color: #6a9fb5;
+  }
+  pre.warn {
+    color: #d28445;
+  }
+  pre.error {
+    color: #ac4142;
+  }
+</style>
+<script>
+(function () {
+  function toHtml(className) {
+    return function () {
+      var code = document.createElement('pre');
+      var text = Array.prototype.join.call(arguments, ' ');
+      code.className = className;
+      code.appendChild(document.createTextNode(text));
+      document.body.appendChild(code);
+      document.body.scrollTop = document.body.offsetHeight;
+    };
+  }
+  if (!window.console) {
+    window.console = {};
+  }
+  console.log   = toHtml('log');
+  console.info  = toHtml('info');
+  console.warn  = toHtml('warn');
+  console.error = toHtml('error');
+}());

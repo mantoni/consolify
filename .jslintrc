@@ -4,6 +4,5 @@
   "node"     : true,
   "plusplus" : true,
   "vars"     : true,
-  "nomen"    : true,
-  "ass"      : true
+  "nomen"    : true
 }

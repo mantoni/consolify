@@ -1,21 +1,20 @@
 # Consolify
 
-Generate standalone HTML pages that turn the browser window into a console
+Generate standalone HTML pages that turn the browser window into a console for
+browserified JavaScript.
 
 ![consolify](http://maxantoni.de/img/consolify.png)
 
-## Install with npm:
+## Install with npm
 
 ```
-$ npm install consolify -g
+$ npm install consolify
 ```
 
 ## Usage
 
-Pipe any script to the consolify command:
-
 ```
-$ cat test.js | consolify > test.html
+$ browserify node_modules/consolify test.js | consolify > test.html
 ```
 
 Options:
@@ -32,7 +31,18 @@ See the [browser-reload][] documentation for details on `--reload`.
 Consolify works great with [Browserify][] and [Mocha][] through [Mocaccino][]:
 
 ```
-$ browserify ./test/*.js | mocaccino -b | consolify > test/all.html
+$ browserify node_modules/consolify -p mocaccino ./test/*.js | node_modules/.bin/consolify > test/all.html
+```
+
+## API
+
+```js
+var consolify = require('consolify');
+
+consolify(process.stdin, {
+  title  : 'Consolify',
+  reload : false
+}).pipe(process.stdout);
 ```
 
 ## License

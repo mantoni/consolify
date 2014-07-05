@@ -1,3 +1,4 @@
+/*global document, phantom*/
 var content = require('system').stdin.read();
 var page    = require('webpage').create();
 

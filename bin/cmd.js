@@ -2,7 +2,7 @@
 /*
  * consolify
  *
- * Copyright (c) 2013 Maximilian Antoni <mail@maxantoni.de>
+ * Copyright (c) 2013-2014 Maximilian Antoni <mail@maxantoni.de>
  *
  * @license MIT
  */

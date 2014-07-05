@@ -1,25 +1,29 @@
 {
   "name"            : "consolify",
   "version"         : "0.7.0",
-  "keywords"        : ["browser", "console"],
+  "keywords"        : ["browser", "console", "browserify"],
   "description"     : "Turn your browser window into a console",
   "author"          : "Maximilian Antoni (http://maxantoni.de)",
   "homepage"        : "https://github.com/mantoni/consolify",
-  "main"            : "./lib/consolify.js",
   "bin"             : "bin/cmd.js",
+  "main"            : "./lib/consolify.js",
+  "browser"         : "./lib/browser.js",
   "engines"         : {
-    "node"          : ">=0.8"
+    "node"          : ">=0.10"
   },
   "scripts"         : {
     "start"         : "mocha --watch",
-    "test"          : "make test"
+    "test"          : "mocha"
   },
   "dependencies"    : {
-    "through"       : "~2.3.4",
-    "browser-reload": "~1.0.1"
+    "through"       : "^2.3",
+    "browser-reload": "^1.0",
+    "brout"         : "^0.2"
   },
   "devDependencies" : {
-    "mocha"         : ">=1.17 <2"
+    "jslint"        : "^0.5",
+    "mocha"         : "^1.20",
+    "browserify"    : "^4.2"
   },
   "repository"      : {
     "type"          : "git",

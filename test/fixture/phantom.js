@@ -1,26 +1,17 @@
 /*global document, phantom*/
+'use strict';
+
 var content = require('system').stdin.read();
 var page    = require('webpage').create();
 
 page.onLoadFinished = function () {
-
   setTimeout(function () {
-
-    var lines = page.evaluate(function () {
-      var pres = document.getElementsByTagName('pre');
-      return Array.prototype.slice.call(pres).map(function (pre) {
-        return pre.className.toUpperCase() + ' ' + pre.innerText;
-      });
+    var html = page.evaluate(function () {
+      return document.getElementById('consolify').innerHTML;
     });
-
-    lines.forEach(function (line) {
-      console.log(line);
-    });
-
+    console.log(html);
     phantom.exit();
-
   }, 10);
-
 };
 
 page.content = content;

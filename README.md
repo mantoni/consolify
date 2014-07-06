@@ -14,7 +14,7 @@ $ npm install consolify
 ## Usage
 
 ```
-$ browserify -r consolify test.js | node_modules/.bin/consolify > test.html
+$ browserify node_modules/consolify test.js | node_modules/.bin/consolify > test.html
 ```
 
 Options:
@@ -31,7 +31,7 @@ See the [browser-reload][] documentation for details on `--reload`.
 Consolify works great with [Browserify][] and [Mocha][] through [Mocaccino][]:
 
 ```
-$ browserify -p mocaccino -r consolify ./test/*.js | node_modules/.bin/consolify > test/all.html
+$ browserify -p mocaccino node_modules/consolify ./test/*.js | node_modules/.bin/consolify > test/all.html
 ```
 
 ## API

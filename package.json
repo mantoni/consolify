@@ -1,7 +1,7 @@
 {
   "name"            : "consolify",
   "version"         : "0.7.0",
-  "keywords"        : ["browser", "console", "browserify"],
+  "keywords"        : ["browser", "console", "stdout", "ansi", "color", "browserify"],
   "description"     : "Turn your browser window into a console",
   "author"          : "Maximilian Antoni (http://maxantoni.de)",
   "homepage"        : "https://github.com/mantoni/consolify",

@@ -54,8 +54,8 @@ describe('consolify', function () {
   });
 
   it('sets title as configured', function (done) {
-    br('title.js', { title : 'Some Test' }, done, function (lines) {
-      assert.deepEqual(lines[0], 'Some Test');
+    br('title.js', { title : 'CustomTitle' }, done, function (lines) {
+      assert.deepEqual(lines[0], 'CustomTitle');
     });
   });
 
@@ -78,6 +78,26 @@ describe('consolify', function () {
       assert.deepEqual(lines[13], '<span class="ansi-magenta-bg">Test</span>');
       assert.deepEqual(lines[14], '<span class="ansi-cyan-bg">Test</span>');
       assert.deepEqual(lines[15], '<span class="ansi-white-bg">Test</span>');
+    });
+  });
+
+  it('replaces spaces with &nbsp;', function (done) {
+    br('spaces.js', {}, done, function (lines) {
+      assert.equal(lines[0], '&nbsp;&nbsp;Foo&nbsp;Bar');
+    });
+  });
+
+  it('clears line with Esc[2K', function (done) {
+    br('clear-line.js', {}, done, function (lines) {
+      assert.equal(lines[0], 'First');
+      assert.equal(lines[1], 'Replaced');
+      assert.equal(lines[2], 'Sup?');
+    });
+  });
+
+  it('ignores Esc[0G for now', function (done) {
+    br('clear-tab.js', {}, done, function (lines) {
+      assert.equal(lines[0], '123');
     });
   });
 

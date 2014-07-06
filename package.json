@@ -13,7 +13,8 @@
   },
   "scripts"         : {
     "start"         : "mocha --watch",
-    "test"          : "mocha"
+    "lint"          : "jslint --color \"**/*.js\"",
+    "test"          : "npm run lint && mocha"
   },
   "dependencies"    : {
     "through"       : "^2.3",

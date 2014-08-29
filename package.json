@@ -19,7 +19,8 @@
   "dependencies"    : {
     "through"       : "^2.3",
     "browser-reload": "^1.0",
-    "brout"         : "^0.2"
+    "brout"         : "^0.2",
+    "ansi_up"       : "^1.1"
   },
   "devDependencies" : {
     "jslint"        : "^0.5",

@@ -1,5 +1,10 @@
 # Changes
 
+## 1.0.0
+
+- Rewrite: Map stack traces back to original sources and split up template
+- Fix auto scrolling
+
 ## 0.8.0
 
 Breaking change! Now only works with Browserify!

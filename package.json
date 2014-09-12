@@ -1,6 +1,6 @@
 {
   "name"            : "consolify",
-  "version"         : "0.8.0",
+  "version"         : "1.0.0",
   "keywords"        : ["browser", "console", "stdout", "ansi", "color", "browserify"],
   "description"     : "Turn your browser window into a console",
   "author"          : "Maximilian Antoni (http://maxantoni.de)",

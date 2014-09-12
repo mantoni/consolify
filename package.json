@@ -17,15 +17,17 @@
     "test"          : "npm run lint && mocha"
   },
   "dependencies"    : {
-    "through"       : "^2.3",
+    "through2"      : "^0.6",
+    "listen"        : "^1.0",
     "browser-reload": "^1.0",
-    "brout"         : "^0.2",
+    "brout"         : "^1.0",
+    "source-mapper" : "^1.0",
     "ansi_up"       : "^1.1"
   },
   "devDependencies" : {
-    "jslint"        : "^0.5",
+    "jslint"        : "^0.6",
     "mocha"         : "^1.20",
-    "browserify"    : "^4.2"
+    "browserify"    : "^5.9"
   },
   "repository"      : {
     "type"          : "git",

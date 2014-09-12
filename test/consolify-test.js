@@ -12,7 +12,6 @@ var assert     = require('assert');
 var fs         = require('fs');
 var exec       = require('child_process').exec;
 var browserify = require('browserify');
-var through    = require('through');
 
 var consolify = require('../lib/consolify');
 
@@ -26,11 +25,10 @@ function br(script, opts, done, callback) {
       done();
     }
   });
-  var b = browserify();
+  var b = browserify({ debug : true });
   b.add('./', { expose : 'consolify' });
   b.add('./test/fixture/' + script);
-  var t = through();
-  b.bundle().pipe(t);
+  var t = b.bundle();
   consolify(t, opts).pipe(phantom.stdin);
 }
 
@@ -98,6 +96,14 @@ describe('consolify', function () {
   it('ignores Esc[0G for now', function (done) {
     br('clear-tab.js', {}, done, function (lines) {
       assert.equal(lines[0], '123');
+    });
+  });
+
+  it('maps stack trace back to original source', function (done) {
+    br('stack.js', {}, done, function (lines) {
+      assert.equal(lines[0].replace(/&nbsp;/g, ' '), 'Error: ouch!');
+      assert.equal(lines[1].replace(/&nbsp;/g, ' '),
+          '    at test/fixture/stack.js:4');
     });
   });
 

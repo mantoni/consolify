@@ -1,0 +1,78 @@
+body {
+  background-color: #151515;
+  color: #d0d0d0;
+  font-family: monospace;
+  font-size: 12px;
+  line-height: 18px;
+  margin: 0;
+  padding: 20px;
+}
+
+hr {
+  border: 0;
+  border-bottom: 1px solid #505050;
+  margin-top: 11px 0;
+}
+
+.ansi-black-fg {
+  color: #151515;
+}
+.ansi-black-bg {
+  background-color: #151515;
+}
+.ansi-bright-black-fg {
+  color: #505050;
+}
+.ansi-bright-black-bg {
+  background-color: #505050;
+}
+
+.ansi-red-fg, .ansi-bright-red-fg {
+  color: #ac4142;
+}
+.ansi-red-bg, .ansi-bright-red-bg {
+  background-color: #ac4142;
+}
+.ansi-green-fg, .ansi-bright-green-fg {
+  color: #90a959;
+}
+.ansi-green-bg, .ansi-bright-green-bg {
+  background-color: #90a959;
+}
+.ansi-yellow-fg, .ansi-bright-yellow-fg {
+  color: #f4bf75;
+}
+.ansi-yellow-bg, .ansi-bright-yellow-bg {
+  background-color: #f4bf75;
+}
+.ansi-blue-fg, .ansi-bright-blue-fg {
+  color: #6a9fb5;
+}
+.ansi-blue-bg, .ansi-bright-blue-bg {
+  background-color: #6a9fb5;
+}
+.ansi-magenta-fg, .ansi-bright-magenta-fg {
+  color: #aa759f;
+}
+.ansi-magenta-bg, .ansi-bright-magenta-bg {
+  background-color: #aa759f;
+}
+.ansi-cyan-fg, .ansi-bright-cyan-fg {
+  color: #75b5aa;
+}
+.ansi-cyan-bg, .ansi-bright-cyan-bg {
+  background-color: #75b5aa;
+}
+
+.ansi-white-fg {
+  color: #d0d0d0;
+}
+.ansi-white-bg {
+  background-color: #d0d0d0;
+}
+.ansi-bright-white-fg {
+  color: #f5f5f5;
+}
+.ansi-bright-white-bg {
+  background-color: #f5f5f5;
+}

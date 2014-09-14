@@ -1,5 +1,9 @@
 # Consolify
 
+[![Build Status]](https://travis-ci.org/mantoni/consolify)
+[![SemVer]](http://semver.org)
+[![License]](https://github.com/mantoni/consolify/blob/master/LICENSE)
+
 Generate standalone HTML pages that turn the browser window into a console.
 
 ![consolify](http://maxantoni.de/img/consolify2.png)
@@ -52,6 +56,9 @@ consolify(process.stdin, {
 
 MIT
 
+[Build Status]: http://img.shields.io/travis/mantoni/consolify.svg
+[SemVer]: http://img.shields.io/:semver-%E2%9C%93-brightgreen.svg
+[License]: http://img.shields.io/npm/l/consolify.svg
 [ANSI up]: https://github.com/drudru/ansi_up
 [Base 16]: https://github.com/chriskempson/base16
 [browser-reload]: https://github.com/mantoni/browser-reload

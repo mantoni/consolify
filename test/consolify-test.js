@@ -34,7 +34,7 @@ function br(script, opts, done, callback) {
 
 
 describe('consolify', function () {
-  this.timeout(3000);
+  this.timeout(5000);
 
   it('prints console log, info, warn and error', function (done) {
     br('console.js', {}, done, function (lines) {

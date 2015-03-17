@@ -26,10 +26,9 @@ function br(script, opts, done, callback) {
     }
   });
   var b = browserify({ debug : true });
-  b.add('./', { expose : 'consolify' });
+  b.plugin(consolify, opts);
   b.add('./test/fixture/' + script);
-  var t = b.bundle();
-  consolify(t, opts).pipe(phantom.stdin);
+  b.bundle().pipe(phantom.stdin);
 }
 
 

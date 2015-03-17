@@ -8,8 +8,9 @@ Generate standalone HTML pages that turn the browser window into a console.
 
 ![consolify](http://maxantoni.de/img/consolify2.png)
 
-- Designed for unit testing [Browserify][] output
-- ANSI color support using [ANSI up][].
+- Designed for [Browserify][]
+- Source maps aware
+- ANSI color support using [ANSI up][]
 - Beautiful [Base 16][] color scheme
 
 ## Install with npm
@@ -21,36 +22,34 @@ $ npm install consolify
 ## Usage
 
 ```
-$ browserify --debug ./node_modules/consolify ./test.js | node_modules/.bin/consolify > test.html
+$ browserify --debug --plugin [ consolify {options} ] ./test.js > test.html
 ```
 
 Options:
 
 ```
--t, --title    Set the document title (defaults to "Consolify")
--r, --reload   Auto reload on change
+-b, --bundle   Set the path to the JavaScript bundle to generate. A script tag
+               with this path will be generated into the output HTML. If not
+               specified, the bundle is inlined.
+-s, --server   Start a server on a given port. If no port is given, a free port
+               will be automatically selected.
+-r, --reload   Auto reload on change.
+-t, --title    Set the document title. Defaults to "Consolify".
 ```
 
-See the [browser-reload][] documentation for details on `--reload`.
-
-## Browserify & Mocha
+## Mocha support
 
 Consolify works great with [Mocha][] through [Mocaccino][]:
 
 ```
-$ browserify -p [ mocaccino -R spec ] ./node_modules/consolify ./test/*.js | node_modules/.bin/consolify > test.html
+$ browserify --plugin mocaccino --plugin consolify ./test/*.js > test.html
 ```
 
-## API
+## Automatic reloads
 
-```js
-var consolify = require('consolify');
-
-consolify(process.stdin, {
-  title  : 'Consolify',
-  reload : false
-}).pipe(process.stdout);
-```
+If `--reload` is given, a HEAD request is made every second to check whether
+the file was updated. This requires a web server that sends the `Last-Modified`
+header. Learn more in the [browser-reload][] documentation.
 
 ## License
 
@@ -62,6 +61,6 @@ MIT
 [ANSI up]: https://github.com/drudru/ansi_up
 [Base 16]: https://github.com/chriskempson/base16
 [browser-reload]: https://github.com/mantoni/browser-reload
-[Mocha]: http://visionmedia.github.io/mocha/
+[Mocha]: http://mochajs.org
 [Browserify]: http://browserify.org
 [Mocaccino]: https://github.com/mantoni/mocaccino.js

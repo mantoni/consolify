@@ -5,7 +5,6 @@
   "description"     : "Turn your browser window into a console",
   "author"          : "Maximilian Antoni (http://maxantoni.de)",
   "homepage"        : "https://github.com/mantoni/consolify",
-  "bin"             : "bin/cmd.js",
   "main"            : "./lib/consolify.js",
   "browser"         : "./lib/browser.js",
   "engines"         : {

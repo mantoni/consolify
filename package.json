@@ -14,7 +14,8 @@
   "scripts"         : {
     "start"         : "mocha --watch",
     "lint"          : "jslint --color \"**/*.js\"",
-    "test"          : "npm run lint && mocha"
+    "pretest"       : "npm run lint",
+    "test"          : "mocha"
   },
   "dependencies"    : {
     "through2"      : "^0.6",

@@ -18,7 +18,6 @@
   },
   "dependencies"    : {
     "through2"      : "^0.6",
-    "listen"        : "^1.0",
     "browser-reload": "^1.0",
     "brout"         : "^1.0",
     "source-mapper" : "^1.0",

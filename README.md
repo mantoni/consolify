@@ -31,8 +31,6 @@ Options:
 -b, --bundle   Set the path to the JavaScript bundle to generate. A script tag
                with this path will be generated into the output HTML. If not
                specified, the bundle is inlined.
--s, --server   Start a server on a given port. If no port is given, a free port
-               will be automatically selected.
 -r, --reload   Auto reload on change.
 -t, --title    Set the document title. Defaults to "Consolify".
 ```

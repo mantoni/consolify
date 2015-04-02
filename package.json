@@ -11,7 +11,7 @@
     "node"          : ">=0.10"
   },
   "scripts"         : {
-    "start"         : "mocha --watch",
+    "watch"         : "mocha --watch",
     "lint"          : "jslint --color \"**/*.js\"",
     "pretest"       : "npm run lint",
     "test"          : "mocha"

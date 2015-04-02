@@ -1,20 +1,28 @@
 /*
  * consolify.js
  *
- * Copyright (c) 2014 Maximilian Antoni <mail@maxantoni.de>
+ * Copyright (c) 2014-2015 Maximilian Antoni <mail@maxantoni.de>
  *
  * @license MIT
  */
-/*globals describe, it*/
+/*globals describe, it, afterEach*/
 'use strict';
 
 var assert     = require('assert');
+var http       = require('http');
 var fs         = require('fs');
 var exec       = require('child_process').exec;
 var browserify = require('browserify');
+var through    = require('through2');
+var consolify  = require('../lib/consolify');
 
-var consolify = require('../lib/consolify');
 
+function bundle(script, opts) {
+  var b = browserify({ debug : true });
+  b.plugin(consolify, opts);
+  b.add('./test/fixture/' + script);
+  return b.bundle();
+}
 
 function br(script, opts, done, callback) {
   var phantom = exec('phantomjs test/fixture/phantom.js', function (err, out) {
@@ -25,10 +33,7 @@ function br(script, opts, done, callback) {
       done();
     }
   });
-  var b = browserify({ debug : true });
-  b.plugin(consolify, opts);
-  b.add('./test/fixture/' + script);
-  b.bundle().pipe(phantom.stdin);
+  bundle(script, opts).pipe(phantom.stdin);
 }
 
 
@@ -102,7 +107,7 @@ describe('consolify', function () {
     br('stack.js', {}, done, function (lines) {
       assert.equal(lines[0].replace(/&nbsp;/g, ' '), 'Error: ouch!');
       assert.equal(lines[1].replace(/&nbsp;/g, ' '),
-          '    at test/fixture/stack.js:4');
+          '      at test/fixture/stack.js:4');
     });
   });
 
@@ -112,6 +117,57 @@ describe('consolify', function () {
         + './test/fixture/broken.md:1\nThis ain\'t no JavaScript\n     ^\n'
         + 'ParseError: Unexpected token</pre>\n');
     });
+  });
+
+});
+
+
+describe('bundle', function () {
+  this.timeout(3000);
+
+  function collect(callback) {
+    var html = '';
+    return through(function (chunk, enc, next) {
+      /*jslint unparam: true*/
+      html += chunk;
+      next();
+    }, function (next) {
+      next();
+      callback(html);
+    });
+  }
+
+  afterEach(function (done) {
+    fs.exists('bundle.js', function (exists) {
+      if (exists) {
+        fs.unlink('bundle.js', done);
+      } else {
+        done();
+      }
+    });
+  });
+
+  it('inserts script for bundle', function (done) {
+    bundle('console.js', { bundle : 'bundle.js' }).pipe(collect(function (h) {
+      assert.notEqual(h.indexOf('<script src="bundle.js">'), -1);
+      done();
+    }));
+  });
+
+  it('does not inserts script if no bundle configured', function (done) {
+    bundle('console.js', {}).pipe(collect(function (h) {
+      assert.equal(h.indexOf('<script src='), -1);
+      done();
+    }));
+  });
+
+  it('writes script to bundle path', function (done) {
+    bundle('console.js', { bundle : 'bundle.js' }).pipe(collect(function () {
+      fs.exists('bundle.js', function (exists) {
+        assert(exists);
+        done();
+      });
+    }));
   });
 
 });

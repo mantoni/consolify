@@ -1,5 +1,12 @@
 # Changes
 
+## 2.0.0
+
+- Refactor into a browserify plugin
+- Add `--bundle` feature to export JS as a separate file
+- Support short `-r` as an alias for `--reload` and `-t` for `--title`
+- Fix auto scrolling
+
 ## 1.0.0
 
 - Rewrite: Map stack traces back to original sources and split up template

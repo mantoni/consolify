@@ -12,12 +12,12 @@
   },
   "scripts"         : {
     "watch"         : "mocha --watch",
-    "lint"          : "jslint --color \"**/*.js\"",
+    "lint"          : "jslint --editon=latest --color \"**/*.js\"",
     "pretest"       : "npm run lint",
     "test"          : "mocha"
   },
   "dependencies"    : {
-    "through2"      : "^0.6",
+    "through2"      : "^1.1",
     "browser-reload": "^1.0",
     "brout"         : "^1.0",
     "source-mapper" : "^1.0",
@@ -26,7 +26,7 @@
   "devDependencies" : {
     "jslint"        : "^0.8",
     "mocha"         : "^2.2",
-    "browserify"    : "^9.0"
+    "browserify"    : "^10.2"
   },
   "repository"      : {
     "type"          : "git",

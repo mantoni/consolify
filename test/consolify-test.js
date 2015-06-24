@@ -114,7 +114,8 @@ describe('consolify', function () {
   it('shows browserify error', function (done) {
     br('broken.md', {}, done, function (lines) {
       assert.deepEqual(lines[0], '<pre class="ansi-red-fg">'
-        + './test/fixture/broken.md:1\nThis ain\'t no JavaScript\n     ^\n'
+        + process.cwd()
+        + '/test/fixture/broken.md:1\nThis ain\'t no JavaScript\n     ^\n'
         + 'ParseError: Unexpected token</pre>\n');
     });
   });

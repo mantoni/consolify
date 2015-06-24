@@ -1,5 +1,9 @@
 # Changes
 
+## 2.0.1
+
+- Update through2 to `v1.1`
+
 ## 2.0.0
 
 - Refactor into a browserify plugin

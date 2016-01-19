@@ -1,8 +1,12 @@
 # Changes
 
+## 2.1.0
+
+- Streams 3: bump dependencies
+
 ## 2.0.1
 
-- Update through2 to `v1.1`
+- Update through2 to `1.1`
 
 ## 2.0.0
 

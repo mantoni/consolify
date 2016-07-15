@@ -15,6 +15,7 @@ var exec       = require('child_process').exec;
 var browserify = require('browserify');
 var through    = require('through2');
 var consolify  = require('../lib/consolify');
+var util       = require('../lib/util');
 
 
 function bundle(script, opts) {
@@ -35,7 +36,6 @@ function br(script, opts, done, callback) {
   });
   bundle(script, opts).pipe(phantom.stdin);
 }
-
 
 describe('consolify', function () {
   this.timeout(5000);
@@ -126,6 +126,15 @@ describe('consolify', function () {
 describe('bundle', function () {
   this.timeout(3000);
 
+  function rmf(file, callback) {
+    fs.unlink(file, function (err) {
+      if (err && err.code !== 'ENOENT') {
+        return callback(err);
+      }
+      callback();
+    });
+  }
+
   function collect(callback) {
     var html = '';
     return through(function (chunk, enc, next) {
@@ -139,13 +148,10 @@ describe('bundle', function () {
   }
 
   afterEach(function (done) {
-    fs.exists('bundle.js', function (exists) {
-      if (exists) {
-        fs.unlink('bundle.js', done);
-      } else {
-        done();
-      }
-    });
+    util.series([
+      rmf.bind(fs, 'bundle.js'),
+      rmf.bind(fs, 'out.html')
+    ], done);
   });
 
   it('inserts script for bundle', function (done) {
@@ -169,6 +175,29 @@ describe('bundle', function () {
         done();
       });
     }));
+  });
+
+  it('writes html to outfile path', function (done) {
+    bundle('console.js', { outfile : 'out.html' })
+      .pipe(collect(function () {
+        fs.exists('out.html', function (exists) {
+          assert(exists);
+          done();
+        });
+      }));
+  });
+
+  it('writes both html and the bundle', function (done) {
+    bundle('console.js', { outfile : 'out.html', bundle : 'bundle.js' })
+      .pipe(collect(function () {
+        fs.exists('out.html', function (htmlExists) {
+          assert(htmlExists, 'html exists');
+          fs.exists('bundle.js', function (bundleExists) {
+            assert(bundleExists, 'bundle exists');
+            done();
+          });
+        });
+      }));
   });
 
 });

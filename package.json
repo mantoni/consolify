@@ -26,7 +26,8 @@
   "devDependencies" : {
     "jslint"        : "^0.8",
     "mocha"         : "^2.3.4",
-    "browserify"    : "^13.0.0"
+    "browserify"    : "^13.0.0",
+    "tmp"           : "^0.0.28"
   },
   "repository"      : {
     "type"          : "git",

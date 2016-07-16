@@ -193,4 +193,24 @@ describe('bundle', function () {
       }));
   }));
 
+  it('resolves the bundle path relative to the html',
+    sandbox(function (done, tmpdir) {
+      fs.mkdir(tmpdir + '/tmp', function (err) {
+        if (err) {
+          return done(err);
+        }
+        bundle('console.js', {
+          outfile : tmpdir + 'tmp/out.html',
+          bundle : tmpdir + 'tmp/bundle.js'
+        })
+          .pipe(collect(function (h) {
+            assert.notEqual(
+              h.indexOf('<script src="bundle.js">'),
+              -1
+            );
+            done();
+          }));
+      });
+    }));
+
 });

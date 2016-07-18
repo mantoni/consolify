@@ -1,5 +1,9 @@
 # Changes
 
+## 2.2.0
+
+- Add `--outfile` arg (Jonny Reeves)
+
 ## 2.1.0
 
 - Streams 3: bump dependencies

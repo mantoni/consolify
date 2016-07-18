@@ -4,6 +4,9 @@
   "keywords"        : ["browser", "console", "stdout", "ansi", "color", "browserify-plugin"],
   "description"     : "Turn your browser window into a console",
   "author"          : "Maximilian Antoni (http://maxantoni.de)",
+  "contributors"    : [
+    "Jonny Reeves <github@jonnyreeves.co.uk>"
+  ],
   "homepage"        : "https://github.com/mantoni/consolify",
   "main"            : "./lib/consolify.js",
   "browser"         : "./lib/browser.js",

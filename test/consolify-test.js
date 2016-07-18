@@ -15,6 +15,8 @@ var exec       = require('child_process').exec;
 var browserify = require('browserify');
 var through    = require('through2');
 var consolify  = require('../lib/consolify');
+var util       = require('../lib/util');
+var sandbox    = require('./fixture/sandbox');
 
 
 function bundle(script, opts) {
@@ -35,7 +37,6 @@ function br(script, opts, done, callback) {
   });
   bundle(script, opts).pipe(phantom.stdin);
 }
-
 
 describe('consolify', function () {
   this.timeout(5000);
@@ -138,22 +139,16 @@ describe('bundle', function () {
     });
   }
 
-  afterEach(function (done) {
-    fs.exists('bundle.js', function (exists) {
-      if (exists) {
-        fs.unlink('bundle.js', done);
-      } else {
+  it('inserts script for bundle', sandbox(function (done, tmpdir) {
+    bundle('console.js', { bundle : tmpdir + '/bundle.js' })
+      .pipe(collect(function (h) {
+        assert.notEqual(
+          h.indexOf('<script src="' + tmpdir + '/bundle.js">'),
+          -1
+        );
         done();
-      }
-    });
-  });
-
-  it('inserts script for bundle', function (done) {
-    bundle('console.js', { bundle : 'bundle.js' }).pipe(collect(function (h) {
-      assert.notEqual(h.indexOf('<script src="bundle.js">'), -1);
-      done();
-    }));
-  });
+      }));
+  }));
 
   it('does not inserts script if no bundle configured', function (done) {
     bundle('console.js', {}).pipe(collect(function (h) {
@@ -162,13 +157,60 @@ describe('bundle', function () {
     }));
   });
 
-  it('writes script to bundle path', function (done) {
-    bundle('console.js', { bundle : 'bundle.js' }).pipe(collect(function () {
-      fs.exists('bundle.js', function (exists) {
-        assert(exists);
-        done();
+  it('writes script to bundle path', sandbox(function (done, tmpdir) {
+    bundle('console.js', { bundle : tmpdir + '/bundle.js' })
+      .pipe(collect(function () {
+        fs.exists(tmpdir + '/bundle.js', function (exists) {
+          assert(exists);
+          done();
+        });
+      }));
+  }));
+
+  it('writes html to outfile path', sandbox(function (done, tmpdir) {
+    bundle('console.js', { outfile : tmpdir + '/out.html' })
+      .pipe(collect(function () {
+        fs.exists(tmpdir + '/out.html', function (exists) {
+          assert(exists);
+          done();
+        });
+      }));
+  }));
+
+  it('writes both html and the bundle', sandbox(function (done, tmpdir) {
+    bundle('console.js', {
+      outfile : tmpdir + '/out.html',
+      bundle : tmpdir + '/bundle.js'
+    })
+      .pipe(collect(function () {
+        fs.exists(tmpdir + '/out.html', function (htmlExists) {
+          assert(htmlExists, 'html exists');
+          fs.exists(tmpdir + '/bundle.js', function (bundleExists) {
+            assert(bundleExists, 'bundle exists');
+            done();
+          });
+        });
+      }));
+  }));
+
+  it('resolves the bundle path relative to the html',
+    sandbox(function (done, tmpdir) {
+      fs.mkdir(tmpdir + '/tmp', function (err) {
+        if (err) {
+          return done(err);
+        }
+        bundle('console.js', {
+          outfile : tmpdir + 'tmp/out.html',
+          bundle : tmpdir + 'tmp/bundle.js'
+        })
+          .pipe(collect(function (h) {
+            assert.notEqual(
+              h.indexOf('<script src="bundle.js">'),
+              -1
+            );
+            done();
+          }));
       });
     }));
-  });
 
 });

@@ -33,6 +33,8 @@ Options:
                specified, the bundle is inlined.
 -r, --reload   Auto reload on change.
 -t, --title    Set the document title. Defaults to "Consolify".
+-o, --outfile  Write the standalone HTML page to the supplied path as well as
+               passing it through to browserify
 ```
 
 ## Mocha support

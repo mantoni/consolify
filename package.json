@@ -22,7 +22,7 @@
   "dependencies"    : {
     "through2"      : "^2.0.0",
     "browser-reload": "^1.1.0",
-    "brout"         : "^1.1.0",
+    "brout"         : "^1.2.0",
     "source-mapper" : "^2.0.0",
     "ansi_up"       : "^1.3.0"
   },

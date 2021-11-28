@@ -86,7 +86,7 @@ describe('consolify', function () {
 
   it('replaces spaces with &nbsp;', function (done) {
     br('spaces.js', {}, done, function (lines) {
-      assert.equal(lines[0], '&nbsp;&nbsp;Foo&nbsp;Bar');
+      assert.equal(lines[0], '&amp;nbsp;&amp;nbsp;Foo&amp;nbsp;Bar');
     });
   });
 

@@ -30,7 +30,7 @@
     "jslint"        : "^0.12.1",
     "mocha"         : "^9.1.3",
     "browserify"    : "^13.0.0",
-    "tmp"           : "^0.0.28"
+    "tmp"           : "^0.2.1"
   },
   "repository"      : {
     "type"          : "git",

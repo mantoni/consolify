@@ -20,7 +20,7 @@
     "test"          : "mocha"
   },
   "dependencies"    : {
-    "through2"      : "^2.0.0",
+    "through2"      : "^4.0.2",
     "browser-reload": "^1.1.0",
     "brout"         : "^1.1.0",
     "source-mapper" : "^2.0.0",

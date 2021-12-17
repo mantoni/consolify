@@ -1,41 +1,54 @@
 {
-  "name"            : "consolify",
-  "version"         : "2.2.0",
-  "keywords"        : ["browser", "console", "stdout", "ansi", "color", "browserify-plugin"],
-  "description"     : "Turn your browser window into a console",
-  "author"          : "Maximilian Antoni (http://maxantoni.de)",
-  "contributors"    : [
+  "name": "consolify",
+  "version": "2.2.1",
+  "keywords": [
+    "browser",
+    "console",
+    "stdout",
+    "ansi",
+    "color",
+    "browserify-plugin"
+  ],
+  "description": "Turn your browser window into a console",
+  "author": "Maximilian Antoni (http://maxantoni.de)",
+  "contributors": [
     "Jonny Reeves <github@jonnyreeves.co.uk>"
   ],
-  "homepage"        : "https://github.com/mantoni/consolify",
-  "main"            : "./lib/consolify.js",
-  "browser"         : "./lib/browser.js",
-  "engines"         : {
-    "node"          : ">=0.10"
+  "homepage": "https://github.com/mantoni/consolify",
+  "main": "./lib/consolify.js",
+  "browser": "./lib/browser.js",
+  "engines": {
+    "node": ">=0.10"
   },
-  "scripts"         : {
-    "watch"         : "mocha --watch",
-    "lint"          : "jslint --editon=latest --color \"**/*.js\"",
-    "pretest"       : "npm run lint",
-    "test"          : "mocha"
+  "scripts": {
+    "watch": "mocha --watch",
+    "lint": "jslint --editon=latest --color \"**/*.js\"",
+    "pretest": "npm run lint",
+    "test": "mocha"
   },
-  "dependencies"    : {
-    "through2"      : "^4.0.2",
+  "dependencies": {
+    "through2": "^4.0.2",
     "browser-reload": "^1.1.0",
-    "brout"         : "^1.1.0",
-    "source-mapper" : "^2.0.0",
-    "ansi_up"       : "^5.1.0"
+    "brout": "^1.1.0",
+    "source-mapper": "^2.0.0",
+    "ansi_up": "^5.1.0"
   },
-  "devDependencies" : {
-    "jslint"        : "^0.12.1",
-    "mocha"         : "^9.1.3",
-    "browserify"    : "^17.0.0",
-    "tmp"           : "^0.2.1"
+  "devDependencies": {
+    "jslint": "^0.12.1",
+    "mocha": "^9.1.3",
+    "browserify": "^17.0.0",
+    "tmp": "^0.2.1"
   },
-  "repository"      : {
-    "type"          : "git",
-    "url"           : "https://github.com/mantoni/consolify.git"
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/mantoni/consolify.git"
   },
-  "files"           : ["bin", "lib", "README.md", "CHANGES.md", "LICENSE"],
-  "license"         : "MIT"
+  "files": [
+    "bin",
+    "lib",
+    "README.md",
+    "CHANGES.md",
+    "LICENSE"
+  ],
+  "license": "MIT"
 }

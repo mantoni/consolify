@@ -1,6 +1,6 @@
 # Consolify
 
-[![Build Status]](https://travis-ci.org/mantoni/consolify)
+[![Node.js CI](https://github.com/mantoni/consolify/actions/workflows/node.js.yml/badge.svg)](https://github.com/mantoni/consolify/actions/workflows/node.js.yml)
 [![SemVer]](http://semver.org)
 [![License]](https://github.com/mantoni/consolify/blob/master/LICENSE)
 
@@ -55,7 +55,7 @@ header. Learn more in the [browser-reload][] documentation.
 
 MIT
 
-[Build Status]: http://img.shields.io/travis/mantoni/consolify.svg
+[Build Status]: https://github.com/mantoni/consolify/actions/workflows/node.js.yml/badge.svg
 [SemVer]: http://img.shields.io/:semver-%E2%9C%93-brightgreen.svg
 [License]: http://img.shields.io/npm/l/consolify.svg
 [ANSI up]: https://github.com/drudru/ansi_up

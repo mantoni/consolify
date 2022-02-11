@@ -12,7 +12,8 @@
   "description": "Turn your browser window into a console",
   "author": "Maximilian Antoni (http://maxantoni.de)",
   "contributors": [
-    "Jonny Reeves <github@jonnyreeves.co.uk>"
+    "Jonny Reeves <github@jonnyreeves.co.uk>",
+    "Albert Wang <git@albertyw.com>"
   ],
   "homepage": "https://github.com/mantoni/consolify",
   "main": "./lib/consolify.js",
